@@ -9,7 +9,7 @@
 <body>
 <br/>
 <br/>
-<form:form action="processForm" modelAttribute="user" method="get">
+<form:form action="processForm" modelAttribute="user" method="post">
     Имя (*): <form:input path="firstName"/>
     <input type="submit" value="Добавить"/>
     <br/>
