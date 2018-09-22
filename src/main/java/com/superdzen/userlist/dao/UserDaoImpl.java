@@ -4,6 +4,7 @@ import com.superdzen.userlist.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
@@ -11,8 +12,8 @@ public class UserDaoImpl implements UserDao {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public void setJdbcTemplate(DataSource datasource) {
+        this.jdbcTemplate = new JdbcTemplate(datasource);
     }
 
     @Override
