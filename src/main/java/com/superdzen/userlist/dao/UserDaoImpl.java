@@ -1,15 +1,16 @@
 package com.superdzen.userlist.dao;
 
 import com.superdzen.userlist.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
 
-
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
