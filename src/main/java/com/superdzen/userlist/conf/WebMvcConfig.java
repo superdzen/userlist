@@ -41,7 +41,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public DataSource getDataSource() {
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
         dataSource.setUrl(env.getProperty("spring.datasource.url"));
@@ -51,11 +51,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         return dataSource;
     }
 
-    @Bean(name = "transactionManager")
-    public DataSourceTransactionManager getTransactionManager() {
+    @Bean
+    public DataSourceTransactionManager getTransactionManager(DataSource dataSource) {
         DataSourceTransactionManager txManager = new DataSourceTransactionManager();
-
-        DataSource dataSource = this.getDataSource();
         txManager.setDataSource(dataSource);
 
         return txManager;
