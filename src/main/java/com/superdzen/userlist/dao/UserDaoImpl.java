@@ -21,8 +21,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Autowired
-    public void setTransactionTemplate(DataSource dataSource) {
-        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
+    public void setTransactionTemplate(DataSourceTransactionManager transactionManager) {
         this.transactionTemplate = new TransactionTemplate(transactionManager);
     }
 
